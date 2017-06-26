@@ -4,7 +4,6 @@ console.log("Hello there!");
 // Copy the code below an implement a basic calculator.
 // When the user performs one of the operations, output the result to another DOM element of your choice.
 
-
 var num1 = document.getElementById("num1");
 var num2 = document.getElementById("num2");
 
@@ -13,9 +12,7 @@ var num2 = document.getElementById("num2");
   passed in as arguments. Return the sum.
  */
 document.getElementById("add").addEventListener("click", function() {
-  var quotient = parseInt(num1.value) + parseInt(num2.value); 
-  console.log(quotient);
-  output.innerHTML = `${quotient}`;
+  output.innerHTML = total(num1.value, num2.value, add)
 });
 
 /*
@@ -23,28 +20,41 @@ document.getElementById("add").addEventListener("click", function() {
   passed in as arguments. Return the difference.
  */
 document.getElementById("subtract").addEventListener("click", function() {
-  var quotient = parseInt(num1.value) - parseInt(num2.value);
-  console.log(quotient);
-  output.innerHTML = `${quotient}`;
+  output.innerHTML = total(num1.value, num2.value, subtract)
 });
 
 
-//   Create a function that divides two numbers
-//   passed in as arguments. Return the quotient.
+// //   Create a function that divides two numbers
+// //   passed in as arguments. Return the quotient.
 document.getElementById("multiply").addEventListener("click", function() {
-  var quotient = parseInt(num1.value) * parseInt(num2.value);
-  console.log(quotient);
-  output.innerHTML = `${quotient}`;
+  output.innerHTML = total(num1.value, num2.value, multiply)
 }); 
 
-//   Create a function that divides two numbers
-//   passed in as arguments. Return the quotient.
+// //   Create a function that divides two numbers
+// //   passed in as arguments. Return the quotient.
 document.getElementById("divide").addEventListener("click", function() {
-  var quotient = parseInt(num1.value) / parseInt(num2.value);
-   console.log(quotient);
-   output.innerHTML = `${quotient}`;
+  output.innerHTML = total(num1.value, num2.value, divide)
 });
 
+function add(num1, num2) {
+  return parseInt(num1) + parseInt(num2);
+};
+
+function subtract(num1, num2) {
+  return parseInt(num1) - parseInt(num2);
+};
+
+function multiply(num1, num2) {
+  return parseInt(num1) * parseInt(num2);
+};
+
+function divide(num1, num2) {
+  return parseInt(num1) / parseInt(num2);
+};
+
+function total(num1, num2, operation) {
+  return operation(num1, num2)
+}
 
 /*
   Create a function that accepts three arguments.
